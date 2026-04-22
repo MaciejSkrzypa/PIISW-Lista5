@@ -1,0 +1,70 @@
+<article class="m-3">
+  <h2>Edit book</h2>
+
+  <form class="book-edit-form" [formGroup]="bookForm" (ngSubmit)="save()" novalidate>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        id="title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        [class.is-invalid]="isInvalid('title')"
+      >
+      @if (isInvalid('title')) {
+        <div class="invalid-feedback">Title is required and can have at most 50 characters.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input
+        id="author"
+        type="text"
+        class="form-control"
+        formControlName="author"
+        [class.is-invalid]="isInvalid('author')"
+      >
+      @if (isInvalid('author')) {
+        <div class="invalid-feedback">Author is required and can have at most 50 characters.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="year" class="form-label">Publication year</label>
+      <input
+        id="year"
+        type="number"
+        class="form-control"
+        formControlName="year"
+        min="1000"
+        max="2023"
+        [class.is-invalid]="isInvalid('year')"
+      >
+      @if (isInvalid('year')) {
+        <div class="invalid-feedback">Publication year must be a number from 1000 to 2023.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        id="description"
+        class="form-control"
+        rows="6"
+        formControlName="description"
+        [class.is-invalid]="isInvalid('description')"
+      ></textarea>
+      @if (isInvalid('description')) {
+        <div class="invalid-feedback">Description can have at most 1000 characters.</div>
+      }
+    </div>
+
+    <div class="d-flex gap-2">
+      <button class="btn btn-primary" type="submit" [disabled]="bookForm.invalid || bookForm.pristine || isSaving">
+        Save
+      </button>
+      <button class="btn btn-outline-secondary" type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</article>

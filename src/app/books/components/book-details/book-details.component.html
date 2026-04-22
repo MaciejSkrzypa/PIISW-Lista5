@@ -1,0 +1,23 @@
+<article class="m-3">
+  <a routerLink="/books" class="btn btn-outline-secondary mb-3">Back to books</a>
+
+  <section class="book-details">
+    <h2>{{ book.title }}</h2>
+    <p class="text-muted mb-1">{{ book.author }}</p>
+    <p class="mb-3">Published: {{ book.year }}</p>
+    <p class="book-description">{{ book.description }}</p>
+  </section>
+
+  <section class="mt-4">
+    <h3>Reviews</h3>
+    @if (reviews.length === 0) {
+      <p class="text-muted">No reviews yet.</p>
+    }
+    <bs-review-card
+      *ngFor="let review of reviews; trackBy: trackReviewId"
+      [review]="review"
+    ></bs-review-card>
+  </section>
+
+  <bs-review-form [bookId]="book.id" (reviewSaved)="addReview($event)"></bs-review-form>
+</article>

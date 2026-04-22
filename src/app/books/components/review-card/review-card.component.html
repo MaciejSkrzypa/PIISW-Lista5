@@ -1,0 +1,12 @@
+<article class="card review-card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between gap-3">
+      <div>
+        <h5 class="card-title">{{ review.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ review.author || 'Unknown author' }}</h6>
+      </div>
+      <span class="badge text-bg-secondary align-self-start">{{ review.rate }}/5</span>
+    </div>
+    <p class="card-text">{{ review.description }}</p>
+  </div>
+</article>

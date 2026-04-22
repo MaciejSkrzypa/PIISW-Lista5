@@ -18,7 +18,7 @@
       "id": 3,
       "title": "Ubik",
       "author": "Phillip K Dick",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu enim augue. Vestibulum sed hendrerit nisl. Sed ullamcorper tempor neque. ",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu enim augue. Vestibulum sed hendrerit nisl. Sed ullamcorper tempor neque. gvh",
       "year": 1965
     },
     {
@@ -50,6 +50,22 @@
       "title": "Don't like it",
       "description": "Anything is better than this.",
       "rate": 1
+    },
+    {
+      "forBook": 3,
+      "author": "hjk",
+      "title": "hjk",
+      "description": "jkl",
+      "rate": 5,
+      "id": 4
+    },
+    {
+      "forBook": 1,
+      "author": "asd",
+      "title": "asd",
+      "description": "asd",
+      "rate": 5,
+      "id": 5
     }
   ]
 }

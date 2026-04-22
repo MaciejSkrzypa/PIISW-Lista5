@@ -1,0 +1,49 @@
+<section class="review-form mt-4">
+  <h3>Add review</h3>
+
+  <form [formGroup]="reviewForm" (ngSubmit)="save()" novalidate>
+    <div class="mb-3">
+      <label for="review-author" class="form-label">Author</label>
+      <input
+        id="review-author"
+        type="text"
+        class="form-control"
+        formControlName="author"
+        [class.is-invalid]="isInvalid('author')"
+      >
+      @if (isInvalid('author')) {
+        <div class="invalid-feedback">Author is required.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="review-title" class="form-label">Title</label>
+      <input
+        id="review-title"
+        type="text"
+        class="form-control"
+        formControlName="title"
+        [class.is-invalid]="isInvalid('title')"
+      >
+      @if (isInvalid('title')) {
+        <div class="invalid-feedback">Title is required.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="review-description" class="form-label">Content</label>
+      <textarea
+        id="review-description"
+        class="form-control"
+        rows="4"
+        formControlName="description"
+        [class.is-invalid]="isInvalid('description')"
+      ></textarea>
+      @if (isInvalid('description')) {
+        <div class="invalid-feedback">Content is required.</div>
+      }
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="reviewForm.invalid || isSaving">Save</button>
+  </form>
+</section>
